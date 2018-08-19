@@ -52,6 +52,9 @@ namespace TextSplitter {
         /// <returns></returns>
         public static ITextProvider Atomic(ITextProvider provider) => new AtomicTextProvider(provider);
 
+        public static ITextProvider Atomic(IEnumerable<ITextProvider> providers) => new AtomicTextProvider(providers);
+        public static ITextProvider Atomic(params ITextProvider[] providers) => new AtomicTextProvider(providers);
+
         /// <summary>
         /// Returns a provider that emits all of the given strings without any splitting inbetween.
         /// </summary>

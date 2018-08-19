@@ -19,6 +19,14 @@ namespace TextSplitter.Tests
 
         [Test]
         public void AtomicMultipleTest() {
+            var text = Atomic(Atomic("a"), Atomic("b"), Atomic("c"));
+            Assert.AreEqual(string.Empty, text.ToText(2));
+            Assert.AreEqual("abc", text.ToText(3));
+            Assert.AreEqual("abc", text.ToText(4));
+        }
+
+        [Test]
+        public void AtomicStringsTest() {
             var text = Atomic("a", "b", "c");
             Assert.AreEqual(string.Empty, text.ToText(2));
             Assert.AreEqual("abc", text.ToText(3));
